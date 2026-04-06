@@ -1,0 +1,48 @@
+---
+
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 flex justify-between items-center py-3 w-full max-w-200 px-4 sm:px-6 lg:px-8 z-50"
+>
+  <nav
+    class="header-nav relative flex items-center justify-between w-full text-sm sm:text-base px-3 py-2 rounded-full transition-all duration-300"
+  >
+    <div
+      class="nav-bg absolute inset-0 rounded-full -z-10 transition-all duration-300"
+    >
+    </div>
+    <img
+      class="rounded-full w-8 h-8"
+      src="src/assets/Armi.jpg"
+      alt="Armi Foto"
+    />
+    <div class="flex gap-4 sm:gap-8 lg:gap-12 text-sm sm:text-base pr-5">
+      <a
+        class="text-white/80 hover:text-[#F9BC16] transition-colors duration-200"
+        href="#experiencia">Experiencia</a
+      >
+      <a
+        class="text-white/80 hover:text-[#F9BC16] transition-colors duration-200"
+        href="#proyectos">Proyectos</a
+      >
+      <a
+        class="text-white/80 hover:text-[#F9BC16] transition-colors duration-200"
+        href="#sobremi">Sobre mí</a
+      >
+    </div>
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById("site-header");
+
+  const onScroll = () => {
+    if (!header) return;
+    header.classList.toggle("scrolled", window.scrollY > 10);
+  };
+
+  onScroll();
+  window.addEventListener("scroll", onScroll);
+</script>

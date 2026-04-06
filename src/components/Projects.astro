@@ -1,0 +1,117 @@
+---
+import ReactIcon from "../assets/icons/ReactIcon.astro";
+import JsIcon from "../assets/icons/jsIcon.astro";
+import Html from "../assets/icons/Html.astro";
+import Css from "../assets/icons/Css.astro";
+import GitHub from "../assets/icons/GitHub.astro";
+import Link from "../assets/icons/Link.astro";
+
+const tags = {
+  react: {
+    name: "React",
+    class: "bg-[#0f0f0f] text-white",
+    icon: ReactIcon,
+  },
+  javaScript: {
+    name: "JavaScript",
+    class: "bg-[#e4a126]/20 text-white",
+    icon: JsIcon,
+  },
+  html: {
+    name: "HTML",
+    class: "bg-[#f16524]/20 text-white",
+    icon: Html,
+  },
+  css: {
+    name: "CSS",
+    class: "bg-[#33a9dc]/20 text-white",
+    icon: Css,
+  },
+};
+
+const buttons = {
+  github: {
+    name: "Código",
+    type: "github",
+    class: "bg-[#0f0f0f] text-white",
+    icon: GitHub,
+  },
+  link: {
+    name: "Página",
+    type: "link",
+    class: "bg-[#0f0f0f] text-white",
+    icon: Link,
+  },
+};
+
+const projectsList = [
+  {
+    title: "Aura's Kingdom",
+    description:
+      "Landing page enfocada en narrativa inmersiva que mejora la retención del usuario y la interacción mediante microcomponentes en React.",
+    link: "https://auras-kingdom-bgco.vercel.app/",
+    gitHub: "https://github.com/ArmiGmz25/Auras_Kingdom",
+    image: "/Auras_Project.jpg",
+    tags: [tags.react, tags.javaScript, tags.html, tags.css],
+    buttons: [buttons.github, buttons.link],
+  },
+];
+---
+
+{
+  projectsList.map((project) => (
+    <article class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+      <div class="order-1 md:order-1 group overflow-hidden rounded">
+        <a href={project.link} target="_blank">
+          <img
+            class="w-full rounded transition-all duration-500 ease-out scale-100 group-hover:group-hover:scale-105"
+            src={project.image}
+            alt={project.title}
+          />
+        </a>
+      </div>
+
+      <div class="order-2 md:order-2">
+        <h3 class="font-mono text-xl font-semibold text-[#F9BC16]">
+          {project.title}
+        </h3>
+
+        <ul class="flex gap-x-4 my-2">
+          {project.tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 pl-2 pr-3 border border-white/20 items-center hover:-translate-y-1 transition-transform duration-200`}
+              >
+                <tag.icon class="size-4.5" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <p class="text-white/95 max-w-xl">{project.description}</p>
+
+        <ul class="flex gap-x-4 mt-2">
+          {project.buttons.map((button) => {
+            const href =
+              button.type === "github" ? project.gitHub : project.link;
+
+            return (
+              <li>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rounded-lg border border-white/20 flex justify-center items-center gap-x-4 py-1 px-2 bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+                >
+                  <button.icon class="size-4.5" />
+                  {button.name}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </article>
+  ))
+}

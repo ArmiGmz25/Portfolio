@@ -1,0 +1,46 @@
+---
+import ExperienceItem from "../components/ExperienceItem.astro";
+const experienceInfo = [
+  {
+    role: "Desarrollador Fullstack",
+    company: "Ingeniería Condor",
+    period: "Abr 2025 – Actualidad",
+    description: [
+      "Desarrollo de interfaces y componentes con React, HTML, CSS y JavaScript y diseño de la experiencia UX/UI para un CRM de Grupo Posadas, enfocado en usabilidad y eficiencia operativa y optimización de flujos de usuario.",
+      "Participación en el proyecto CEF Aeroméxico, desarrollando frontend con Oracle Visual Builder e integrando de servicios mediante OIC, así como el análisis de incidencias en OTBI, depuración de consultas SQL, resolución de errores y mejora de procesos.",
+    ],
+  },
+
+  {
+    role: "Diseñador UX/UI y Multimedia",
+    company: "Espacio360",
+    period: "Nov 2024 – Abr 2025",
+    description: [
+      "Diseño de interfaces y experiencias de usuario en proyectos de e-learning.",
+      "Uso de herramientas como Figma, Photoshop, Illustrator y After Effects.",
+      "Desarrollo de contenido multimedia.",
+    ],
+  },
+
+  {
+    role: "Diseñador 3D y Multimedia",
+    company: "Mamoncillo Studios | Demente Animation Studio",
+    period: "Dic 2022 – Jul 2024",
+    description: [
+      "Producción de contenido visual y assets 3D para proyectos comerciales.",
+      "Participación en producción de Barbie Music Videos | Mattel.",
+      "Participación en proyecto BOLOFEST 2022 | Cartoon Network.",
+    ],
+  },
+];
+---
+
+<ol class="relative border-s-2 border-white/30 ml-2">
+  {
+    experienceInfo.map((item) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...item} />
+      </li>
+    ))
+  }
+</ol>

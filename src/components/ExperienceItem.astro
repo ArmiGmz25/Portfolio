@@ -1,0 +1,28 @@
+---
+interface Props {
+  role: string;
+  company: string;
+  period: string;
+  description: string[];
+}
+
+const { role, company, period, description } = Astro.props;
+---
+
+<div
+  class="absolute w-3 h-3 rounded-full mt-1.5 -inset-s-1.5 bg-[#F9BC16] border border-[#F9BC16]"
+>
+</div>
+<time
+  class="font-mono bg-linear-to-r from-[#b7bfff] to-[#E5C0FF] bg-clip-text text-transparent text-center"
+  >{period}</time
+>
+<h2 class="font-mono text-xl font-semibold text-heading my-2 text-[#F9BC16]">
+  {role}
+</h2>
+<h3 class="text-xl text-heading my-2 text-white/95">
+  {company}
+</h3>
+<ul class="mb-4 text-base text-body space-y-1 text-pretty text-white/90">
+  {description.map((item) => <li>• {item}</li>)}
+</ul>

@@ -31,6 +31,43 @@
   </nav>
 </header>
 
+<style>
+  .nav-bg {
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    );
+    border: 1px solid transparent;
+    box-shadow: none;
+    opacity: 0;
+    transition:
+      opacity 0.4s ease,
+      backdrop-filter 0.4s ease,
+      background 0.4s ease,
+      box-shadow 0.4s ease,
+      border 0.4s ease;
+    will-change: opacity, backdrop-filter;
+  }
+
+  #site-header.scrolled .nav-bg {
+    opacity: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.01)
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+</style>
+
 <script>
   const header = document.getElementById("site-header");
 

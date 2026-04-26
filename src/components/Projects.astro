@@ -5,6 +5,7 @@ import Html from "../assets/icons/Html.astro";
 import Css from "../assets/icons/Css.astro";
 import GitHub from "../assets/icons/GitHub.astro";
 import Link from "../assets/icons/Link.astro";
+import BootstrapIcon from "../assets/icons/BootstrapIcon.astro";
 
 const tags = {
   react: {
@@ -27,6 +28,11 @@ const tags = {
     class: "bg-[#33a9dc]/20 text-white",
     icon: Css,
   },
+  bootstrap: {
+    name: "Bootstrap",
+    class: "bg-[#33a9dc]/20 text-white",
+    icon: BootstrapIcon,
+  },
 };
 
 const buttons = {
@@ -46,6 +52,16 @@ const buttons = {
 
 const projectsList = [
   {
+    title: "Grupo Mulive",
+    description:
+      "Landing page para Grupo Mulive enfocada en una experiencia visual atractiva, diseño responsivo, jerarquía clara y elementos interactivos que refuerzan la identidad de marca.",
+    link: "https://grupomulive.com/",
+    gitHub: "https://github.com/ArmiGmz25/Mulive",
+    image: "/Mulive_Project.jpg",
+    tags: [tags.bootstrap, tags.javaScript, tags.html, tags.css],
+    buttons: [buttons.github, buttons.link],
+  },
+  {
     title: "Aura's Kingdom",
     description:
       "Landing page enfocada en narrativa inmersiva que mejora la retención del usuario y la interacción mediante microcomponentes en React.",
@@ -60,7 +76,7 @@ const projectsList = [
 
 {
   projectsList.map((project) => (
-    <article class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+    <article class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-12">
       <div class="order-1 md:order-1 group overflow-hidden rounded">
         <a href={project.link} target="_blank">
           <img
